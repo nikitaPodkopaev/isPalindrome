@@ -1,4 +1,5 @@
 let idCounter = 1;
+let elementId = 0;
 let palindromeObjectArr = [];
 const palindromeTabelCont = document.querySelector("#palindromeTabelCont");
 const addBtn = document.querySelector("#addBtn");
@@ -13,11 +14,12 @@ class palindrome{
 }
 const testValues = ["anna", "Anna", "anna ", "YellowSubmarine" ]
 addTestCases(testValues);
-addDataToTheFront(palindromeObjectArr);
+addTestCasesToTheFront();
 addBtn.addEventListener('click', () => {
-    const newWord = palindromInp.value;
-    addNewWord(newWord);
-    addDataToTheFront(palindromeObjectArr);
+        const newWord = palindromInp.value;
+        addNewWord(newWord);
+        addDataToTheFront(palindromeObjectArr[idCounter - 2]);
+  
 })
 function isPalindrome (word) {
     word = word.toLowerCase().replace(/\s/g,"");
@@ -52,27 +54,47 @@ function addDeletOption(element){
 element.addEventListener('click', () => {
     const selectedElement = document.getElementById(element.id);
     palindromeTabelCont.removeChild(selectedElement);
+    palindromeObjectArr.splice(palindromeObjectArr.indexOf(element.id, 1))
+    idCounter--;
+    elementId--;
 })
 }
-function addDataToTheFront(arr){
-    arr.forEach(element => {
+function addChangeOption(element){
+    element.addEventListener("change", () => {
+        const selectedElementResult = document.querySelector(".result" + element.id);
+        selectedElementResult.innerText = isPalindrome(element.value);
+        colorTheElement(selectedElementResult);
+    })
+}
+function addTestCasesToTheFront(){
+    for(let i = 0; i < 4; i++){
+        addDataToTheFront(palindromeObjectArr[i]);
+    }
+}
+function addDataToTheFront(element){
         const newTr = document.createElement("tr");
-        newTr.id = idCounter;
+        newTr.id = elementId;
         const newDelBtn = document.createElement("button");
+        const newInput = document.createElement("input");
+        newInput.classList.add("valueBox");
         newDelBtn.classList.add("delBtn");
         newDelBtn.innerHTML = "&#10060;";
-        newDelBtn.id = idCounter;
+        newDelBtn.id = elementId;
+        newInput.id = elementId;
         addDeletOption(newDelBtn);
+        addChangeOption(newInput);
         for(let i = 0; i < 4; i++){
             const newTd = document.createElement("td");
             if(i === 0){
                 newTd.innerText = element.id;
             }
             if(i === 1){
-                newTd.innerText = element.word;
+                newInput.value = element.word;
+                newTd.appendChild(newInput);
             }
             if(i === 2){
                 newTd.innerText = element.result;
+                newTd.classList.add("result" + elementId);
                 colorTheElement(newTd);
             }
             if(i === 3){
@@ -81,7 +103,5 @@ function addDataToTheFront(arr){
             newTr.appendChild(newTd)
         }
         palindromeTabelCont.appendChild(newTr);
-    });
-    palindromeObjectArr = [];
-
+        elementId++;
 }

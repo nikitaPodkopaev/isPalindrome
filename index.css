@@ -37,7 +37,7 @@ button{
 }
 #palindromInp{
     height: 30px;
-    width: 80%;
+    width: 85%;
     margin-right: 5px;
     border: 2px solid #bdc3c7;
     border-radius: 4px;
@@ -63,9 +63,42 @@ button{
     border: none;
     border-radius: 4px;
 }
+.valueBox{
+    text-align: center;
+    width: 60%;
+    height: 30px;
+    border: none;
+    background-color: #ecf0f1;
+}
 @media only screen and (max-width: 560px) {
     #palindromBoxContainer{
         max-width: 100%;
         margin-top: 0px;
+        border-radius: 0px;
+    }
+    #addBtn{
+        margin-top: 10px;
     }
   }
+  @media only screen and (max-width: 1200px)  and (min-device-width: 700px) {
+    #palindromBoxContainer{
+        max-width: 90%;
+        margin-top: 0px;
+    }
+    #addBtn {
+        margin-top: 10px;
+        margin-right: 30px;
+    }
+  }
+
+  @media only screen and (max-width: 350px) {
+    #palindromBoxContainer{
+        max-width: 100%;
+        margin-top: 0px;
+    }
+    #addBtn {
+        margin-top: 10px;
+        margin-right: 30px;
+    }
+  }
+
