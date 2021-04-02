@@ -1,0 +1,71 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    background-color: #34495e;
+    font-family: 'Open Sans', sans-serif;
+    color: #2c3e50;
+}
+button{
+    border:none;
+    border-radius: 4px;
+}
+#palindromBoxContainer{
+    max-width: 25%;
+    background-color: #ecf0f1;
+    margin: 0px auto;
+    border-radius: 4px;
+    text-align: center;
+    margin-top: 10%;
+}
+#palindromBoxContainer h1{
+    text-align: center;
+}
+#palindromeTabel th{
+    text-transform: uppercase;
+}
+#palindromeTabel{
+    margin: 0px auto;
+    width: 100%;
+}
+#addBtn{
+    background-color:#3498db;
+    color: #ecf0f1;
+    padding: 2px 15px;
+    font-size: 24px;
+}
+#palindromInp{
+    height: 30px;
+    width: 80%;
+    margin-right: 5px;
+    border: 2px solid #bdc3c7;
+    border-radius: 4px;
+}
+#palindromInp:focus, #palindromInp:active{
+    border: 2px solid #1abc9c;
+}
+#inputBoxContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+#elemtsContainer{
+    width: 80%;
+    margin: 10px auto;
+}
+.delBtn{
+    width: 45px;
+    height: 30px;
+    background-color:#bdc3c7;
+    color: #ecf0f1;
+    border: none;
+    border-radius: 4px;
+}
+@media only screen and (max-width: 560px) {
+    #palindromBoxContainer{
+        max-width: 100%;
+        margin-top: 0px;
+    }
+  }
