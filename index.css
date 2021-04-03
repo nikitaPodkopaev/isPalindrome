@@ -71,14 +71,23 @@ button{
     border: none;
     background-color: #ecf0f1;
 }
-@media only screen and (max-width: 560px) {
+@media only screen and (max-width: 700px) {
     #palindromBoxContainer{
         max-width: 100%;
         margin-top: 0px;
         border-radius: 0px;
     }
-    #addBtn{
+    #addBtn {
+        margin-top: 20px;
+        width: 95%;
+    }
+    #palindromInp{
         margin-top: 10px;
+        width: 93%;
+        text-align: center;
+    }
+    #palindromeTabel{
+        margin-top: 20px;
     }
   }
   @media only screen and (max-width: 1200px)  and (min-device-width: 700px) {
@@ -99,7 +108,11 @@ button{
     }
     #addBtn {
         margin-top: 10px;
-        margin-right: 30px;
+        width: 95%;
     }
+    #palindromInp{
+        width: 91%;
+    }
+
   }
 
